@@ -1,0 +1,32 @@
+{
+	"name": "Release-Wing Documentaion",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "3.12-slim-bookworm"
+		}
+	},
+	"forwardPorts": [
+		8000
+	],
+	"postCreateCommand": "pip3 install --user -r requirements.txt",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "bash",
+						"args": [
+							"-c",
+							"cd /workspace/docs; exec bash"
+						]
+					}
+				}
+			}
+		}
+	},
+	"workspaceFolder": "/workspace/docs",
+	"workspaceMount": "source=${localWorkspaceFolder}/..,target=/workspace,type=bind,consistency=cached",
+	"remoteUser": "mkdocs"
+}
