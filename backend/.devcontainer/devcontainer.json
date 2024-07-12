@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java-postgres
+{
+	"name": "Release-Wing Backend",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	// "forwardPorts": [5432],
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		}
+	},
+	"postCreateCommand": "java -version",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"git.openRepositoryInParentFolders": "always"
+			}
+		}
+	},
+	"workspaceFolder": "/Release-Wing/backend"
+}
