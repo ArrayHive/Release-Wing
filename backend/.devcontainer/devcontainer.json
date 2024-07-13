@@ -4,7 +4,6 @@
 	"name": "Release-Wing Backend",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	// "forwardPorts": [5432],
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "none",
@@ -16,8 +15,16 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"git.openRepositoryInParentFolders": "always"
-			}
+				"git.openRepositoryInParentFolders": "always",
+			    "java.compile.nullAnalysis.mode": "automatic",
+				"java.configuration.updateBuildConfiguration": "automatic"
+			},
+			"extensions": [
+				"eamodio.gitlens",
+				"usernamehw.errorlens",
+				"pflannery.vscode-versionlens",
+				"vmware.vscode-boot-dev-pack"
+			]
 		}
 	},
 	"workspaceFolder": "/Release-Wing/backend"
